@@ -2,20 +2,34 @@
 
 //クイズ画像
 let quizImage = [
-  'https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png',
-  'https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png',
-  'https://d1khcm40x1j0f.cloudfront.net/quiz/ad4f8badd896f1a9b527c530ebf8ac7f.png'
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png', //高輪
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png', //亀戸
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/ad4f8badd896f1a9b527c530ebf8ac7f.png', //麹町
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/ee645c9f43be1ab3992d121ee9e780fb.png', //御成門
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/6a235aaa10f0bd3ca57871f76907797b.png', //等々力
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/0b6789cf496fb75191edf1e3a6e05039.png', //石神井
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/23e698eec548ff20a4f7969ca8823c53.png', //雑色
+  'https://d1khcm40x1j0f.cloudfront.net/quiz/50a753d151d35f8602d2c3e2790ea6e4.png', //御徒町
+  'https://d1khcm40x1j0f.cloudfront.net/words/8cad76c39c43e2b651041c6d812ea26e.png',//鹿骨
+  'https://d1khcm40x1j0f.cloudfront.net/words/34508ddb0789ee73471b9f17977e7c9c.png' //小榑
 ];
 
 //問題文など
 let quizSet = [
   {p:'1.この地名はなんて読む？', c:['たかなわ','こうわ','たかわ']},
   {p:'2.この地名はなんて読む？', c:['かめいど','かめど','かめと']},
-  {p:'3.この地名はなんて読む？', c:['こうじまち','おかとまち','かゆまち']}
+  {p:'3.この地名はなんて読む？', c:['こうじまち','おかとまち','かゆまち']},
+  {p:'4.この地名はなんて読む？', c:['おなりもん','おかどもん','ごせいもん']},
+  {p:'5.この地名はなんて読む？', c:['とどろき','たらら','たたりき']},
+  {p:'6.この地名はなんて読む？', c:['しゃくじい','せきこうい','いじい']},
+  {p:'7.この地名はなんて読む？', c:['ぞうしき','ざっしょく','ざっしき']},
+  {p:'8.この地名はなんて読む？', c:['おかちまち','みとちょう','ごしろちょう']},
+  {p:'9.この地名はなんて読む？', c:['ししぼね','しこね','ろっこつ']},
+  {p:'10.この地名はなんて読む？', c:['こぐれ','こしゃく','こばく']}
 ];
 //選択肢のid格納先のリスト
 let optionId = [
-  [],[],[]
+  [],[],[],[],[],[],[],[],[],[]
 ];
 
 
