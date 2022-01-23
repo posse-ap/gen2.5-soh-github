@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>posse-app</title>
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+  <header>
+    <div class="headerInner">
+      <div class="posseLogo"><img src="https://github.com/posse-ap/gen1.5-takanashiayane/blob/ph2-posseapp-develop/web%E3%82%A2%E3%83%97%E3%83%AA/src/img/posselogoss.png?raw=true" alt="POSSE">
+      </div>
+      <a href="#modal-01" class="postButton">記録・投稿</a>
+      <div class="modalWrapper" id="modal-01">
+        <a href="#!" class="modalOverlay"></a>
+        <div class="modalWindow">
+          <div class="modalContent">
+            <div class="modalLeft">
+              <div class="lerningDate">
+                <div class="modalContentsTitle">学習日</div>
+                <input type="text" class="textInput" name="学習日">
+              </div>
+              <div class="lernigContent">
+                <div class="modalContentsTitle">学習コンテンツ（複数選択可）</div>
+                <div class="checkbox">
+                  <div class="testbox">
+                    <input type="checkbox" name="contentsBox" value="1" id="N予備校"><label for="N予備校">N予備校</label>
+                  </div>
+                  <div class="testbox">
+                    <input type="checkbox" name="contentsBox" value="1" id="ドットインストール"><label for="ドットインストール">ドットインストール</label>
+                  </div>
+                  <div class="testbox">
+                    <input type="checkbox" name="contentsBox" value="1" id="POSSE課題"><label for="POSSE課題">POSSE課題</label>
+                  </div>
+                </div>
+              </div>
+              <div class="lernigLang">
+                <div class="modalContentsTitle">学習言語（複数選択可）</div>
+                <div class="checkbox">
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="html"><label for="html">HTML</label></div>
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="css"><label for="css">css</label></div>
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="javascript"><label for="javascript">JavaScript</label></div>
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="PHP"><label for="PHP">PHP</label></div>
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="Laravel"><label for="Laravel">Laravel</label></div>
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="SQL"><label for="SQL">SQL</label></div>
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="SHELL"><label for="SHELL">SHELL</label></div>
+                  <div class="testbox"><input type="checkbox" name="langsBox" value="1" id="情報システム基礎知識（その他）"><label for="情報システム基礎知識（その他）">情報システム基礎知識（その他）</label></div>
+                </div>
+              </div>
+            </div>
+            <div class="modalRight">
+              <div class="lerningTime">
+                <div class="modalContentsTitle">学習時間</div>
+                <input type="text" class="textInput" name="学習時間">
+              </div>
+              <div class="tweetComent">
+                <div class="modalContentsTitle">Twitter用コメント</div>
+                <textarea name="tweet" class="areaInput" cols="30" rows="10"></textarea>
+              </div>
+              <div class="tweetButton">
+                <input type="checkbox" name="tweetBox" value="1">Twitterにシェアする
+              </div>
+            </div>
+          </div>
+          <div class="modalPost">記録・投稿</div>
+          <a href="#!" class="modalClose">×</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="mainInner">
+      <div class="mainLeft">
+        <div class="hours">
+          <div class="today">
+            <div class="period">Today</div>
+            <div class="time">3</div>
+            <div class="hour">hour</div>
+          </div>
+          <div class="month">
+            <div class="period">Month</div>
+            <div class="time">120</div>
+            <div class="hour">hour</div>
+          </div>
+          <div class="total">
+            <div class="period">Total</div>
+            <div class="time">1348</div>
+            <div class="hour">hour</div>
+          </div>
+        </div>
+        <div class="graph">graph</div>
+      </div>
+      <div class="mainRight">
+        <div class="lang">
+          <div class="contentTitle">学習言語</div>
+          <div></div>
+        </div>
+        <div class="contents">
+          <div class="contentTitle">学習コンテンツ</div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>
+</html>
