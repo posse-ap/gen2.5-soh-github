@@ -1,0 +1,30 @@
+.headerInner {
+  background-color: #ffffff;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+.posseLogo{
+  text-align: center;
+  margin: auto 40px;
+}
+.posseLogo::after{
+  content: "4th week";
+  color: #97b9d1;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+.postButton{
+  background: linear-gradient(to right, #2371bc, #40cdff);
+  color: #f5fbfe;
+  height: 40px;
+  font-size: 20px;
+  width: 200px;
+  border-radius: 20px;
+  margin: auto 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 0 8px #76C7EA;
+}

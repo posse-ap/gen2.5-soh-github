@@ -1,0 +1,37 @@
+.error-color{
+  color: #F4BD67;
+}
+
+.errorMain{
+  height: 100vh;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  vertical-align: middle;
+  position: relative;
+}
+.errorContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.errorIconWrapper{
+  margin: auto;
+  position: relative;
+  padding-top: 30px;
+}
+.errorIconWrapper::before{
+  content: 'ERROR';
+  color: #F4BD67;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+
+
+.errorMain p{
+  margin: 20px auto;
+}
