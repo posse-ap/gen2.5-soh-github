@@ -3,13 +3,14 @@
 }
 
 .errorMain{
-  height: 100vh;
+  height: 100%;
   margin: auto;
   text-align: center;
-  position: relative;
+  // position: relative;
   vertical-align: middle;
   position: relative;
 }
+
 .errorContainer{
   position: absolute;
   top: 50%;
