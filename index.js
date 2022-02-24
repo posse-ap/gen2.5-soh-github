@@ -9,5 +9,15 @@ $(function(){
     $(this).parent().toggleClass('testbox-checked');
   });
 
+  $('.modalPost').click(function(){
+    let w = $('.modalWindow').width();
+    let h = $('.modalWindow').height();
+    $('.modalLeft').hide();
+    $('.modalRight').hide();
+    $('.completeContainer').show();
+    $(this).hide();
 
+    $('.modalWindow').width(w);
+    $('.modalWindow').height(h);
+  })
 })
