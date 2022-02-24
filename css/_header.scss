@@ -8,15 +8,25 @@
 .posseLogo{
   text-align: center;
   margin: auto 40px;
+  @media screen and (max-width: 480px) {
+    margin: auto 20px;
+    img {
+      width: 100px;
+      height: auto;
+    }
+  }
 }
 .posseLogo::after{
   content: "4th week";
   color: #97b9d1;
   vertical-align: middle;
   margin-left: 20px;
+  @media screen and (max-width: 480px) {
+    font-size: 10px;
+  }
 }
 .postButton{
-  background: linear-gradient(to right, #2371bc, #40cdff);
+  background: linear-gradient(to right, #0f71bc, #3ccfff);
   color: #f5fbfe;
   height: 40px;
   font-size: 20px;
@@ -27,4 +37,13 @@
   text-align: center;
   text-decoration: none;
   box-shadow: 0 0 8px #76C7EA;
+  @media screen and (max-width: 480px) {
+    position: absolute;
+    width: calc(100% - 40px);
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+
+  }
 }

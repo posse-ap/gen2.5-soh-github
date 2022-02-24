@@ -11,6 +11,15 @@
   text-align: center;
   margin: auto 40px;
 }
+@media screen and (max-width: 480px) {
+  .posseLogo {
+    margin: auto 20px;
+  }
+  .posseLogo img {
+    width: 100px;
+    height: auto;
+  }
+}
 
 .posseLogo::after {
   content: "4th week";
@@ -18,9 +27,14 @@
   vertical-align: middle;
   margin-left: 20px;
 }
+@media screen and (max-width: 480px) {
+  .posseLogo::after {
+    font-size: 10px;
+  }
+}
 
 .postButton {
-  background: linear-gradient(to right, #2371bc, #40cdff);
+  background: linear-gradient(to right, #0f71bc, #3ccfff);
   color: #f5fbfe;
   height: 40px;
   font-size: 20px;
@@ -31,6 +45,16 @@
   text-align: center;
   text-decoration: none;
   box-shadow: 0 0 8px #76C7EA;
+}
+@media screen and (max-width: 480px) {
+  .postButton {
+    position: absolute;
+    width: calc(100% - 40px);
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+  }
 }
 
 .modalWrapper {
@@ -215,7 +239,7 @@ modal right
 
 .modalPost {
   font-size: 24px;
-  background: linear-gradient(to right, #2371bc, #40cdff);
+  background: linear-gradient(to right, #0f71bc, #3ccfff);
   color: #f5fbfe;
   height: 50px;
   font-size: 25px;
@@ -228,14 +252,6 @@ modal right
   box-shadow: 0 0 8px #76C7EA;
 }
 
-footer {
-  width: 100%;
-  height: 110px;
-  position: absolute;
-  text-align: center;
-  margin: 0 auto;
-}
-
 .footerWrapper {
   background-color: #f5f5f8;
   text-align: center;
@@ -244,6 +260,11 @@ footer {
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 480px) {
+  .footerWrapper {
+    margin: 16px auto;
+  }
+}
 
 /* ------------日付----------- */
 .footerMonth {
@@ -251,9 +272,14 @@ footer {
   font-weight: bold;
   font-size: 20px;
 }
+@media screen and (max-width: 480px) {
+  .footerMonth {
+    font-size: 16px;
+  }
+}
 
 /* ----------矢印ボタン---------- */
-footer button {
+.footerWrapper button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -319,10 +345,23 @@ main div {
   display: flex;
   justify-content: space-around;
 }
+@media screen and (max-width: 480px) {
+  .mainInner {
+    margin: 0 20px;
+    width: auto;
+    flex-direction: column;
+  }
+}
 
+/***********           Left        ***********/
 .mainLeft {
   width: 50%;
   text-align: center;
+}
+@media screen and (max-width: 480px) {
+  .mainLeft {
+    width: 100%;
+  }
 }
 
 .hours {
@@ -330,26 +369,50 @@ main div {
   justify-content: space-around;
   margin: 10px;
 }
+@media screen and (max-width: 480px) {
+  .hours {
+    margin: 8px 0 0 0;
+  }
+}
 
-.today, .month, .total {
+.todayBox, .monthBox, .totalBox {
   background-color: #ffffff;
   flex-basis: 33.3%;
-  font-size: 20px;
   font-weight: bold;
   padding: 10px;
   box-shadow: 0 0 8px #dedede;
 }
+@media screen and (max-width: 480px) {
+  .todayBox, .monthBox, .totalBox {
+    padding: 8px;
+  }
+}
 
-.today {
+.todayBox {
   margin: 10px 10px 10px 0px;
 }
-
-.month {
-  margin: 10px;
+@media screen and (max-width: 480px) {
+  .todayBox {
+    margin: 8px 8px 8px 0px;
+  }
 }
 
-.total {
+.monthBox {
+  margin: 10px;
+}
+@media screen and (max-width: 480px) {
+  .monthBox {
+    margin: 8px;
+  }
+}
+
+.totalBox {
   margin: 10px 0px 10px 10px;
+}
+@media screen and (max-width: 480px) {
+  .totalBox {
+    margin: 8px 0px 8px 8px;
+  }
 }
 
 .period {
@@ -358,6 +421,11 @@ main div {
 
 .time {
   font-size: 36px;
+}
+@media screen and (max-width: 480px) {
+  .time {
+    font-size: 24px;
+  }
 }
 
 .hour {
@@ -369,11 +437,22 @@ main div {
   margin: 10px;
   box-shadow: 0 0 8px #dedede;
 }
+@media screen and (max-width: 480px) {
+  .graph {
+    margin: 8px 0px;
+  }
+}
 
+/***********           Right        ***********/
 .mainRight {
   display: flex;
   justify-content: space-around;
   width: 50%;
+}
+@media screen and (max-width: 480px) {
+  .mainRight {
+    width: 100%;
+  }
 }
 
 .lang {
@@ -384,6 +463,13 @@ main div {
   box-shadow: 0 0 8px #dedede;
   position: relative;
 }
+@media screen and (max-width: 480px) {
+  .lang {
+    width: auto;
+    height: 250px;
+    margin: 8px 8px 8px 0;
+  }
+}
 
 .contents {
   background-color: #ffffff;
@@ -393,6 +479,13 @@ main div {
   box-shadow: 0 0 8px #dedede;
   position: relative;
 }
+@media screen and (max-width: 480px) {
+  .contents {
+    width: auto;
+    height: 250px;
+    margin: 8px 0 8px 8px;
+  }
+}
 
 .contentTitle {
   position: absolute;
@@ -400,5 +493,12 @@ main div {
   font-size: 20px;
   font-weight: bold;
   margin-top: 30px;
+}
+@media screen and (max-width: 480px) {
+  .contentTitle {
+    font-size: 16px;
+    left: 16px;
+    margin-top: 16px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

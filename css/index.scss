@@ -1,5 +1,5 @@
 @use  'header'; //_header.scss 
-@use  'modal1'; //_modal1.scss                
+@use  'modal1'; //_modal1.scss                    
 @use  'footer'; //_footer.scss
 @use  'error'; //_error.scss
 
@@ -19,38 +19,65 @@ main div{
   margin: auto;
   display: flex;
   justify-content: space-around;
+  @media screen and (max-width: 480px) {
+    margin: 0 20px;
+    width: auto;
+    flex-direction: column;
+  }
 }
+
+/***********           Left        ***********/
 .mainLeft{
   width: 50%;
   text-align: center;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 }
 .hours{
   display: flex;
   justify-content: space-around;
   margin: 10px;
+  @media screen and (max-width: 480px) {
+    margin: 8px 0 0 0;
+  }
 }
-.today, .month, .total{
+.todayBox, .monthBox, .totalBox{
   background-color: #ffffff;
   flex-basis: 33.3%;
-  font-size: 20px;
   font-weight: bold;
   padding: 10px;
   box-shadow: 0 0 8px #dedede;
+  @media screen and (max-width: 480px) {
+    padding: 8px;
+  }
 }
-.today{
+.todayBox{
   margin: 10px 10px 10px 0px;
+  @media screen and (max-width: 480px) {
+    margin: 8px 8px 8px 0px;
+  }
 }
-.month{
+.monthBox{
   margin: 10px;
+  @media screen and (max-width: 480px) {
+    margin: 8px;
+  }
 }
-.total{
+.totalBox{
   margin: 10px 0px 10px 10px;
+  @media screen and (max-width: 480px) {
+    margin: 8px 0px 8px 8px;
+  }
 }
 .period{
   color: #2371bc;
 }
 .time{
   font-size: 36px;
+  @media screen and (max-width: 480px) {
+    font-size: 24px;
+  }
 }
 .hour{
   color: #97b9d1;
@@ -59,11 +86,19 @@ main div{
   background-color: #ffffff;
   margin: 10px;
   box-shadow: 0 0 8px #dedede;
+  @media screen and (max-width: 480px) {
+    margin: 8px 0px;
+  }
 }
+
+/***********           Right        ***********/
 .mainRight{
   display: flex;
   justify-content: space-around;
   width: 50%;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 }
 .lang{
   background-color: #ffffff;
@@ -72,6 +107,11 @@ main div{
   flex-basis: 50%;
   box-shadow: 0 0 8px #dedede;
   position: relative;
+  @media screen and (max-width: 480px) {
+    width: auto;
+    height: 250px;
+    margin: 8px 8px 8px 0;
+  }
 }
 .contents{
   background-color: #ffffff;
@@ -80,6 +120,11 @@ main div{
   flex-basis: 50%;
   box-shadow: 0 0 8px #dedede;
   position: relative;
+  @media screen and (max-width: 480px) {
+    width: auto;
+    height: 250px;
+    margin: 8px 0 8px 8px;
+  }
 }
 .contentTitle{
   position: absolute;
@@ -87,4 +132,9 @@ main div{
   font-size: 20px;
   font-weight: bold;
   margin-top: 30px;
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
+    left: 16px;
+    margin-top: 16px;
+  }
 }
