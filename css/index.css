@@ -429,13 +429,17 @@ body {
   height: 100vh;
 }
 
+ul {
+  padding: 0%;
+}
+
 /***********           main        ***********/
 main div {
   border-radius: 5px;
 }
 
 .mainInner {
-  width: 80%;
+  width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -551,7 +555,6 @@ main div {
 }
 
 .lang {
-  height: 60vh;
   background-color: #ffffff;
   margin: 10px;
   margin-top: 20px;
@@ -560,14 +563,11 @@ main div {
 }
 @media screen and (max-width: 480px) {
   .lang {
-    width: auto;
-    height: 250px;
     margin: 8px 8px 8px 0;
   }
 }
 
 .contents {
-  height: 60vh;
   background-color: #ffffff;
   margin: 10px;
   margin-top: 20px;
@@ -576,8 +576,6 @@ main div {
 }
 @media screen and (max-width: 480px) {
   .contents {
-    width: auto;
-    height: 250px;
     margin: 8px 0 8px 8px;
   }
 }
@@ -594,5 +592,70 @@ main div {
     left: 16px;
     margin-top: 16px;
   }
+}
+
+.chart {
+  text-align: center;
+}
+
+.legends li {
+  margin-left: 20px;
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.3em;
+}
+@media screen and (max-width: 480px) {
+  .legends li {
+    font-size: 10px;
+  }
+}
+
+li:before {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: block;
+  position: absolute;
+  left: 0em;
+  top: 0.25em;
+  content: "";
+  background: #000;
+}
+
+.legend1::before {
+  background: #2245EC;
+}
+
+.legend2::before {
+  background: #2371BD;
+}
+
+.legend3::before {
+  background: #39BDDE;
+}
+
+.legend4::before {
+  background: #40CEFE;
+}
+
+.legend5::before {
+  background: #B29FF3;
+}
+
+.legend6::before {
+  background: #6D46EC;
+}
+
+.legend7::before {
+  background: #4A17EF;
+}
+
+.legend8::before {
+  background: #3105C0;
+}
+
+.lang ul {
+  display: flex;
+  flex-wrap: wrap;
 }
 /*# sourceMappingURL=index.css.map */

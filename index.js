@@ -25,13 +25,12 @@ $(function(){
   google.charts.load('current', {'packages':['corechart']});
 
   // Draw the chart when Charts is loaded.
-  google.charts.setOnLoadCallback(drawChart);
+  google.charts.setOnLoadCallback(learningContentsChart);
 
-  // Draw the pie chart for the Anthony's pizza when Charts is loaded.
-  // google.charts.setOnLoadCallback(drawAnthonyChart);
+  google.charts.setOnLoadCallback(learningLangageChart);
 
   // Callback that draws the chart.
-  function drawChart() {
+  function learningContentsChart() {
 
     // Create the data table
     var data = new google.visualization.DataTable();
@@ -46,13 +45,44 @@ $(function(){
     // Set options for chart.
     var options = {
       pieHole: 0.5,
+      pieSliceBorderColor: 'none',
       colors: ['#2245EC','#2371BD','#39BDDE'],
-      chartArea:{width:'100%',height:'100%'},
+      chartArea:{width:'90%',height:'90%',backgroundColor:'#000'},
       legend:{position:'none'}
     };
 
     // Instantiate and draw the chart.
     var chart = new google.visualization.PieChart(document.getElementById('contents-chart'));
+    chart.draw(data, options);
+  }
+  function learningLangageChart() {
+
+    // Create the data table
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', '言語');
+    data.addColumn('number', '割合');
+    data.addRows([
+      ["HTML", 30],
+      [ "CSS", 20],
+      ["JavaScript", 10],
+      ["PHP", 5],
+      ["Laravel", 5],
+      ["SQL", 20],
+      ["SHELL", 20],
+      ["その他", 10]
+    ]);
+
+    // Set options for chart.
+    var options = {
+      pieHole: 0.5,
+      pieSliceBorderColor: 'none',
+      colors: ['#2245EC','#2371BD','#39BDDE','#40CEFE','#B29FF3','#6D46EC','#4A17EF','#3105C0'],
+      chartArea:{width:'90%',height:'90%',backgroundColor:'#000'},
+      legend:{position:'none'}
+    };
+
+    // Instantiate and draw the chart.
+    var chart = new google.visualization.PieChart(document.getElementById('lang-chart'));
     chart.draw(data, options);
   }
 })
