@@ -103,16 +103,21 @@
             <div class="hour">hour</div>
           </div>
         </div>
-        <div class="graph">graph</div>
+        <div class="graph" id="time-graph"></div>
       </div>
       <div class="mainRight">
         <div class="lang">
           <div class="contentTitle">学習言語</div>
-          <div></div>
+          <div class="chart" id="lang-chart"></div>
         </div>
         <div class="contents">
           <div class="contentTitle">学習コンテンツ</div>
-          <div></div>
+          <div class="chart" id="contents-chart"></div>
+          <ul class="legends">
+            <li id="legend1">ドットインストール</li>
+            <li id="legend2">N予備校</li>
+            <li id="legend3">POSSE課題</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -123,6 +128,7 @@
     </div>
   </main>
   <script src="jquery-3.5.1.min.js"></script>
-    <script src="index.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
