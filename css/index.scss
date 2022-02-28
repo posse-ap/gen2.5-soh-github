@@ -20,6 +20,7 @@ main div{
   margin: auto;
   display: flex;
   justify-content: space-around;
+  height: 100%;
   @media screen and (max-width: 480px) {
     margin: 0 20px;
     width: auto;
