@@ -1,6 +1,19 @@
 'use strict';
 
 $(function(){
+  //modalリセット
+  $('#modal-trigger').click(function (){
+    $('label').find('i').removeClass("checkcircle-color-checked");
+    $('label').parent().removeClass("testbox-checked");
+
+    $('.tweetButton').find('i').removeClass('checkcircle-color-checked');
+
+    $('.completeContainer').hide();
+    $('.modalLeft').show();
+    $('.modalRight').show();
+    $('.modalPost').show();
+  });
+  //tweetボタン
   $('.tweetButton').click(function () { 
     $(this).find('i').toggleClass('checkcircle-color-checked');
   });
@@ -8,7 +21,7 @@ $(function(){
     $(this).find('i').toggleClass("checkcircle-color-checked");
     $(this).parent().toggleClass('testbox-checked');
   });
-
+  //awesome表示
   $('.modalPost').click(function(){
     let w = $('.modalWindow').width();
     let h = $('.modalWindow').height();
@@ -162,7 +175,8 @@ $(function(){
             gridlines:{color:'none'},
             baseline:'none',format:'#h',
             titleTextStyle: { color: '#137DC4' }
-          }
+          },
+          colors: ['#2245EC']
         };
 
         // Instantiate and draw the chart.
