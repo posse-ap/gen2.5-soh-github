@@ -33,7 +33,7 @@
   }
 }
 
-.postButton {
+#modal-trigger {
   background: linear-gradient(to right, #0f71bc, #3ccfff);
   color: #f5fbfe;
   height: 40px;
@@ -47,13 +47,14 @@
   box-shadow: 0 0 8px #76C7EA;
 }
 @media screen and (max-width: 480px) {
-  .postButton {
+  #modal-trigger {
     position: absolute;
     width: calc(100% - 40px);
     left: 0;
     right: 0;
     bottom: 20px;
     margin: auto;
+    display: none;
   }
 }
 
@@ -347,7 +348,7 @@ modal complete
   transform: translate(-50%, 0);
 }
 
-.footerWrapper {
+.footerMonthWrapper {
   background-color: #f5f5f8;
   text-align: center;
   margin: 40px auto;
@@ -356,7 +357,7 @@ modal complete
   align-items: center;
 }
 @media screen and (max-width: 480px) {
-  .footerWrapper {
+  .footerMonthWrapper {
     margin: 16px auto;
   }
 }
@@ -374,7 +375,7 @@ modal complete
 }
 
 /* ----------矢印ボタン---------- */
-.footerWrapper button {
+.footerMonthWrapper button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -383,6 +384,29 @@ modal complete
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+#modal-trigger2 {
+  background: linear-gradient(to right, #0f71bc, #3ccfff);
+  color: #f5fbfe;
+  height: 40px;
+  font-size: 20px;
+  width: 200px;
+  border-radius: 20px;
+  margin: auto 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 0 8px #76C7EA;
+  display: none;
+}
+@media screen and (max-width: 480px) {
+  #modal-trigger2 {
+    width: calc(100% - 40px);
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+  }
 }
 
 .error-color {
@@ -426,6 +450,7 @@ modal complete
 body {
   background-color: #f5f5f8;
   position: relative;
+  height: 100%;
 }
 
 ul {
@@ -464,7 +489,7 @@ main div {
 }
 
 .hours {
-  height: 30%;
+  height: calc(30% - 10px);
   display: flex;
   justify-content: space-around;
   margin: 10px;
@@ -541,7 +566,7 @@ main div {
 }
 
 .graph {
-  height: 70%;
+  height: calc(70% - 20px);
   background-color: #ffffff;
   margin: 10px;
   padding: 5px;
@@ -562,11 +587,11 @@ main div {
 @media screen and (max-width: 480px) {
   .mainRight {
     width: 100%;
+    flex-direction: row-reverse;
   }
 }
 
 .lang {
-  height: 100%;
   background-color: #ffffff;
   margin: 10px;
   margin-top: 20px;
@@ -575,12 +600,11 @@ main div {
 }
 @media screen and (max-width: 480px) {
   .lang {
-    margin: 8px 8px 8px 0;
+    margin: 8px 0 8px 8px;
   }
 }
 
 .contents {
-  height: 100%;
   background-color: #ffffff;
   margin: 10px;
   margin-top: 20px;
@@ -589,7 +613,7 @@ main div {
 }
 @media screen and (max-width: 480px) {
   .contents {
-    margin: 8px 0 8px 8px;
+    margin: 8px 8px 8px 0;
   }
 }
 

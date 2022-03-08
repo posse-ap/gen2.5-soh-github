@@ -9,6 +9,8 @@
   <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/3ded641fb3.js" crossorigin="anonymous"></script>
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- My css -->
   <link rel="stylesheet" href="./css/index.min.css">
 </head>
@@ -27,7 +29,7 @@
             <div class="modalLeft">
               <div class="lerningDate">
                 <div class="modalContentsTitle">学習日</div>
-                <input type="text" class="textInput" name="学習日">
+                <input type="text" class="textInput" name="学習日" id="study-date">
               </div>
               <div class="lernigContent">
                 <div class="modalContentsTitle">学習コンテンツ（複数選択可）</div>
@@ -131,14 +133,16 @@
         </div>
       </div>
     </div>
-    <div class="footerWrapper">
+    <div class="footerMonthWrapper">
       <button id="prevBtn" class="footerBtn"><i class="fa-solid fa-angle-left fa-2x period"></i></button>
       <div class="footerMonth">2020年10月</div>
       <button id="nextBtn" class="footerBtn"><i class="fa-solid fa-angle-right fa-2x period"></i></button>
     </div>
+    <a href="#modal-01" class="postButton" id="modal-trigger2">記録・投稿</a>
   </main>
   <script src="jquery-3.5.1.min.js"></script>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="index.js"></script>
 </body>
 </html>

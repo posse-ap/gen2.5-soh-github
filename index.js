@@ -3,6 +3,21 @@
 $(function(){
   //modalリセット
   $('#modal-trigger').click(function (){
+    $('.textInput').val('');
+    $('.areaInput').val('');
+    $('label').find('i').removeClass("checkcircle-color-checked");
+    $('label').parent().removeClass("testbox-checked");
+
+    $('.tweetButton').find('i').removeClass('checkcircle-color-checked');
+
+    $('.completeContainer').hide();
+    $('.modalLeft').show();
+    $('.modalRight').show();
+    $('.modalPost').show();
+  });
+  $('#modal-trigger2').click(function (){
+    $('.textInput').val('');
+    $('.areaInput').val('');
     $('label').find('i').removeClass("checkcircle-color-checked");
     $('label').parent().removeClass("testbox-checked");
 
@@ -33,6 +48,9 @@ $(function(){
     $('.modalWindow').width(w);
     $('.modalWindow').height(h);
   })
+
+  //flat-pickr
+  flatpickr('#study-date');
 
 
   // グラフ
@@ -176,7 +194,6 @@ $(function(){
             baseline:'none',format:'#h',
             titleTextStyle: { color: '#137DC4' }
           },
-          colors: ['#2245EC']
         };
 
         // Instantiate and draw the chart.
