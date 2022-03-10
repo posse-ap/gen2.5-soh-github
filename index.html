@@ -66,18 +66,24 @@
               </div>
               <div class="tweetComent">
                 <div class="modalContentsTitle">Twitter用コメント</div>
-                <textarea name="tweet" class="areaInput" cols="30" rows="10"></textarea>
+                <textarea name="tweet" class="areaInput" id="tweetText" cols="30" rows="10"></textarea>
               </div>
               <div class="tweetButton">
-                <input type="checkbox" name="tweetBox" value="1"><i class="fa-solid fa-circle-check fa-2x checkcircle-color fa-fw"></i>Twitterにシェアする
+                
+                <input type="checkbox" name="tweetBox" id="tweetBox" value="1"><label for="tweetBox" style="vertical-align: middle;"><i class="fa-solid fa-circle-check fa-2x checkcircle-color fa-fw"></i>Twitterにシェアする</label>
               </div>
             </div>
           </div>
           <div class="modalPost">記録・投稿</div>
           <!-- 投稿完了 -->
           <div class="completeContainer">
+            <!-- Loading -->
+            <div class="loadingContainer">
+              <div class="laodingCircle"></div>
+            </div>
+            <!-- Awesome -->
             <div class="completeIconWrapper"><i class="fa-solid fa-circle-check fa-5x awesomeColor"></i></div>
-            <p>記録・投稿<br>完了しました</p>
+            <p class="completeText">記録・投稿<br>完了しました</p>
           </div>
           <a href="#!" class="modalClose">×</a>
         </div>

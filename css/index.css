@@ -333,7 +333,12 @@ modal complete
   transform: translate(-50%, -50%);
 }
 
+.completeText {
+  display: none;
+}
+
 .completeIconWrapper {
+  display: none;
   margin: auto;
   position: relative;
   padding-top: 30px;
@@ -348,6 +353,52 @@ modal complete
   transform: translate(-50%, 0);
 }
 
+/*--------------------------
+modal loading
+--------------------------*/
+.loadingContainer {
+  background: conic-gradient(#3ABBF2 0deg, #0f71bc 270deg);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  -webkit-animation: rotation 1s linear infinite;
+          animation: rotation 1s linear infinite;
+}
+
+.loadingContainer::before {
+  content: "";
+  width: 51%;
+  height: 51%;
+  border-radius: 100% 0% 0% 0%;
+  background-color: #fff;
+  position: absolute;
+  top: -1%;
+  left: -1%;
+}
+
+.laodingCircle {
+  width: 75px;
+  height: 75px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes rotation {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 .footerMonthWrapper {
   background-color: #f5f5f8;
   text-align: center;
@@ -450,7 +501,6 @@ modal complete
 body {
   background-color: #f5f5f8;
   position: relative;
-  height: 100%;
 }
 
 ul {
@@ -636,6 +686,7 @@ main div {
 }
 
 .legends li {
+  color: #666;
   margin-left: 20px;
   list-style-type: none;
   position: relative;

@@ -1,12 +1,11 @@
 @use  'header'; //_header.scss 
-@use  'modal1'; //_modal1.scss                    
+@use  'modal1'; //_modal1.scss                          
 @use  'footer'; //_footer.scss
 @use  'error'; //_error.scss
 
 body{
   background-color: #f5f5f8;
   position: relative;
-  height: 100%;
 }
 ul{padding: 0%;}
 
@@ -109,14 +108,12 @@ main div{
   display: flex;
   justify-content: space-around;
   width: 50%;
-  // height: 100%;
   @media screen and (max-width: 480px) {
     width: 100%;
     flex-direction: row-reverse;
   }
 }
 .lang{
-  // height: 100%;
   background-color: #ffffff;
   margin: 10px;
   margin-top: 20px;
@@ -127,7 +124,6 @@ main div{
   }
 }
 .contents{
-  // height: 100%; 
   background-color: #ffffff;
   margin: 10px;
   margin-top: 20px;
@@ -152,6 +148,7 @@ main div{
   text-align: center;
 }
 .legends li {
+  color: #666;  
   margin-left: 20px;
   list-style-type: none;
   position: relative;

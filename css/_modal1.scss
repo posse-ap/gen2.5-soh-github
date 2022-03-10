@@ -242,7 +242,11 @@ modal complete
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.completeText{
+  display: none;
+}
 .completeIconWrapper{
+  display: none;
   margin: auto;
   position: relative;
   padding-top: 30px;
@@ -254,4 +258,42 @@ modal complete
   top: 0;
   left: 50%;
   transform: translate(-50%,0);
+}
+
+/*--------------------------
+modal loading
+--------------------------*/
+.loadingContainer{
+  background: conic-gradient(#3ABBF2 0deg,#0f71bc 270deg);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  // animation: rotation 1.5s ease-in-out infinite;
+  animation: rotation 1s linear infinite;
+}
+.loadingContainer::before{
+  content: '';
+  width: 51%;
+  height: 51%;
+  border-radius: 100% 0% 0% 0%;
+  background-color: #fff;
+  position: absolute;
+  top: -1%;
+  left: -1%;
+}
+.laodingCircle{
+  width: 75px;
+  height: 75px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes rotation {
+  100% {
+    transform: rotate(-360deg);
+  }
 }

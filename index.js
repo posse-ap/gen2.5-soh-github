@@ -14,6 +14,12 @@ $(function(){
     $('.modalLeft').show();
     $('.modalRight').show();
     $('.modalPost').show();
+    //tweetボタンリセット
+    $('#tweetBox').prop('checked', false);
+    //loadingリセット
+    $('.loadingContainer').show();
+    $('.completeIconWrapper').hide();
+    $('.completeText').hide();
   });
   $('#modal-trigger2').click(function (){
     $('.textInput').val('');
@@ -27,6 +33,12 @@ $(function(){
     $('.modalLeft').show();
     $('.modalRight').show();
     $('.modalPost').show();
+    //tweetボタンリセット
+    $('#tweetBox').prop('checked', false);
+    //loadingリセット
+    $('.loadingContainer').show();
+    $('.completeIconWrapper').hide();
+    $('.completeText').hide();
   });
   //tweetボタン
   $('.tweetButton').click(function () { 
@@ -36,18 +48,33 @@ $(function(){
     $(this).find('i').toggleClass("checkcircle-color-checked");
     $(this).parent().toggleClass('testbox-checked');
   });
-  //awesome表示
+  //modal 投稿
   $('.modalPost').click(function(){
+    var tweetText = $('#tweetText').val();
+    if($('#tweetBox').prop('checked') == true){
+      window.open('https://twitter.com/share?text=' + tweetText );
+    }
+
     let w = $('.modalWindow').width();
     let h = $('.modalWindow').height();
     $('.modalLeft').hide();
     $('.modalRight').hide();
-    $('.completeContainer').show();
+    // $('.completeContainer').show();
     $(this).hide();
+    loading();
 
     $('.modalWindow').width(w);
     $('.modalWindow').height(h);
   })
+
+function loading(){
+  $('.completeContainer').show();
+  setTimeout(function(){
+    $('.loadingContainer').hide();
+    $('.completeIconWrapper').fadeIn();
+    $('.completeText').fadeIn();
+  },2000);
+}
 
   //flat-pickr
   flatpickr('#study-date');
@@ -183,16 +210,16 @@ $(function(){
           chartArea:{width:'80%',height:'80%',},
           legend:{position:'none'},
           hAxis:{
+            textStyle: {color: '#97b9d1'},
             ticks: [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30],
             gridlines:{color:'none'},
             baseline:'none',
-            titleTextStyle: { color: '#137DC4' }
           },
           vAxis:{
+            textStyle: {color: '#97b9d1'},
             ticks: [0,2,4,6,8],
             gridlines:{color:'none'},
             baseline:'none',format:'#h',
-            titleTextStyle: { color: '#137DC4' }
           },
         };
 
