@@ -542,8 +542,7 @@ main div {
   height: calc(30% - 20px);
   display: flex;
   justify-content: space-around;
-  margin: 10px;
-  margin-bottom: 0px;
+  margin: 20px 10px;
 }
 @media screen and (max-width: 480px) {
   .hours {
@@ -567,7 +566,7 @@ main div {
 }
 
 .todayBox {
-  margin: 10px 10px 0px 0px;
+  margin: 0px 10px 0px 0px;
 }
 @media screen and (max-width: 480px) {
   .todayBox {
@@ -576,7 +575,7 @@ main div {
 }
 
 .monthBox {
-  margin: 10px 10px 0px 10px;
+  margin: 0px 10px 0px 10px;
 }
 @media screen and (max-width: 480px) {
   .monthBox {
@@ -585,7 +584,7 @@ main div {
 }
 
 .totalBox {
-  margin: 10px 0px 0px 10px;
+  margin: 0px 0px 0px 10px;
 }
 @media screen and (max-width: 480px) {
   .totalBox {
@@ -646,8 +645,7 @@ main div {
 
 .lang {
   background-color: #ffffff;
-  margin: 10px;
-  margin-top: 20px;
+  margin: 20px 10px 0px 10px;
   flex-basis: 50%;
   box-shadow: 0 0 8px #dedede;
 }
@@ -659,8 +657,7 @@ main div {
 
 .contents {
   background-color: #ffffff;
-  margin: 10px;
-  margin-top: 20px;
+  margin: 20px 10px 0px 10px;
   flex-basis: 50%;
   box-shadow: 0 0 8px #dedede;
 }
