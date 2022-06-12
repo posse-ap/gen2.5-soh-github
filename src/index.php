@@ -15,6 +15,6 @@
   </div>
   
   
-  <script src="../kuizy.js"></script>
+  <script src="./kuizy.js"></script>
 </body>
 </html>
