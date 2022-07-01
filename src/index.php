@@ -13,8 +13,6 @@
       <h1 class="quiz-title box-container">ガチで東京の人しか解けない！! #東京の難読地名クイズ</h1>
     </div>
   </div>
-  
-  
-  <script src="../kuizy.js"></script>
+  <script src="./kuizy.js"></script>
 </body>
 </html>
