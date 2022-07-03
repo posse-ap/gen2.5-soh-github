@@ -14,3 +14,9 @@ services:       # 「サービス」を定義する項目
     volumes:
       - ./src:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
+    depends_on:
+      - db
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
