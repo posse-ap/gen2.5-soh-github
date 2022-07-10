@@ -17,6 +17,9 @@ services:       # 「サービス」を定義する項目
     depends_on:
       - db
   db:
-    image: mysql:8.0
+    build: ./mysql/
     environment:
       MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./mysql/initdb.d/init.sql:/docker-entrypoint-initdb.d/init.sql  #初期処理のフォルダ
+      - ./mysql/db:/var/lib/mysql   #ここにデータ永続化するためのファイルが入る
