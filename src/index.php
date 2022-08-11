@@ -8,11 +8,10 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="wrapper">
-    <div class = "content-wrapper" id="main">
-      <h1 class="quiz-title box-container">ガチで東京の人しか解けない！! #東京の難読地名クイズ</h1>
-    </div>
-  </div>
-  <script src="./kuizy.js"></script>
+  <form action="quizy.php" method="get">
+    <label><input type="radio" name="id" value="1">東京</label>
+    <label><input type="radio" name="id" value="2">広島</label>
+    <button>send</button>
+  </form>
 </body>
 </html>
