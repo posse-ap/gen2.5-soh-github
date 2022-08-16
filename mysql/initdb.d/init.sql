@@ -16,7 +16,8 @@ DROP TABLE IF EXISTS questions;
 CREATE TABLE questions (
   id INT AUTO_INCREMENT PRIMARY KEY,
   big_question_id INT,
-  img VARCHAR(140)
+  img VARCHAR(140),
+  FOREIGN KEY (big_question_id) REFERENCES big_questions(id)
 ) CHARSET=utf8;
 
 INSERT INTO questions(big_question_id, img) VALUES 
@@ -30,7 +31,9 @@ CREATE TABLE choices (
   id INT AUTO_INCREMENT PRIMARY KEY,
   question_id INT,
   name VARCHAR(140),
-  valid INT
+  valid INT,
+  FOREIGN KEY (question_id) REFERENCES questions(id)
+
 ) CHARSET=utf8;
 
 INSERT INTO choices(question_id, name, valid) VALUES
