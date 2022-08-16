@@ -20,9 +20,9 @@ CREATE TABLE questions (
 ) CHARSET=utf8;
 
 INSERT INTO questions(big_question_id, img) VALUES 
-    (1, '../img/takanawa.png'),
-    (1, '../img/kameido.png'),
-    (2, '../img/mukainada.png');
+    (1, 'takanawa.png'),
+    (1, 'kameido.png'),
+    (2, 'mukainada.png');
 
 -- CHOICES
 DROP TABLE IF EXISTS choices;
