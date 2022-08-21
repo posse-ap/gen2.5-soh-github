@@ -18,10 +18,10 @@ try {
   $stmt->execute([$id]);
   $bq = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  $sql = 'SELECT * FROM questions WHERE big_question_id = ?';
+  $sql = 'SELECT * FROM questions INNER JOIN choices ON questions.big_question_id = ? AND questions.id = choices.question_id';
   $stmt = $pdo->prepare($sql);
   $stmt->execute([$id]);
-  $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $choices = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
   echo $e->getMessage();
@@ -46,25 +46,21 @@ try {
   <div class="wrapper">
     <div class = "content-wrapper" id="main">
       <h1 class="quiz-title box-container">ガチで<?= $bq['pref_name'];?>の人しか解けない！! #<?= $bq['pref_name'];?>の難読地名クイズ</h1>
-      <?php foreach($questions as $index => $question) :?>
+      <?php for($i=0; $i < count($choices)/3; $i++) :?>
       <section class="box-container">
-          <h2><?= $index+1 ?>. この地名はなんて読む?</h2>
+          <h2><?= $i+1 ?>. この地名はなんて読む?</h2>
           <div class="image-container">
-            <img src="./img/<?= $question["img"] ?>" alt="地名画像">
+            <img src="./img/<?= $choices[$i*3]["img"] ?>" alt="地名画像">
           </div>
           <ul>
             <?php
-              $sql = 'SELECT * FROM choices WHERE question_id = ?';
-              $stmt = $pdo->prepare($sql);
-              $stmt->execute([$question["id"]]);
-              $choices = $stmt->fetchAll(PDO::FETCH_ASSOC);
-              foreach ($choices as $choice) :
+              for ($j=0; $j < 3; $j++) :
             ?>
-            <li value="<?= $choice["valid"] ?>"><?= $choice["name"] ?></li>
-            <?php endforeach; ?>
+            <li value="<?= $choices[$j+$i*3]["valid"] ?>"><?= $choices[$j+$i*3]["name"] ?></li>
+            <?php endfor; ?>
           </ul>
       </section>
-      <?php endforeach; ?>
+      <?php endfor; ?>
     </div>
   </div>
   <!-- <script src="./kuizy.js"></script> -->
