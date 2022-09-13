@@ -16,7 +16,7 @@ try {
   $sql = 'SELECT pref_name FROM big_questions WHERE id = ?';
   $stmt = $pdo->prepare($sql);
   $stmt->execute([$id]);
-  $bq = $stmt->fetch(PDO::FETCH_ASSOC);
+  $big_questions = $stmt->fetch(PDO::FETCH_ASSOC);
 
   $sql = 'SELECT * FROM questions INNER JOIN choices ON questions.big_question_id = ? AND questions.id = choices.question_id';
   $stmt = $pdo->prepare($sql);
@@ -39,13 +39,13 @@ try {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $bq['pref_name'];?>の難読地名クイズ</title>
+  <title><?= $big_questions['pref_name'];?>の難読地名クイズ</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="wrapper">
     <div class = "content-wrapper" id="main">
-      <h1 class="quiz-title box-container">ガチで<?= $bq['pref_name'];?>の人しか解けない！! #<?= $bq['pref_name'];?>の難読地名クイズ</h1>
+      <h1 class="quiz-title box-container">ガチで<?= $big_questions['pref_name'];?>の人しか解けない！! #<?= $big_questions['pref_name'];?>の難読地名クイズ</h1>
       <?php for($i=0; $i < count($choices)/3; $i++) :?>
       <section class="box-container">
           <h2><?= $i+1 ?>. この地名はなんて読む?</h2>
