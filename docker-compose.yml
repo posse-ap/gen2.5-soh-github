@@ -19,7 +19,10 @@ services:       # 「サービス」を定義する項目
   db:
     build: ./mysql/
     environment:
+      MYSQL_DATABASE: quizy_db
       MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
     volumes:
       - ./mysql/initdb.d/init.sql:/docker-entrypoint-initdb.d/init.sql  #初期処理のフォルダ
       - ./mysql/db:/var/lib/mysql               #ここにデータ永続化するためのファイルが入る
