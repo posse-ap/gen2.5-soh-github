@@ -21,7 +21,10 @@ try {
   $sql = 'SELECT * FROM questions INNER JOIN choices ON questions.big_question_id = ? AND questions.id = choices.question_id';
   $stmt = $pdo->prepare($sql);
   $stmt->execute([$id]);
-  $choices = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $all_choices = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // print_r('<pre>');
+  // print_r($all_choices);
+  // print_r('</pre>');
 
 } catch (PDOException $e) {
   echo $e->getMessage();
@@ -46,18 +49,20 @@ try {
   <div class="wrapper">
     <div class = "content-wrapper" id="main">
       <h1 class="quiz-title box-container">ガチで<?= $big_questions['pref_name'];?>の人しか解けない！! #<?= $big_questions['pref_name'];?>の難読地名クイズ</h1>
-      <?php for($i=0; $i < count($choices)/3; $i++) :?>
+      <?php for($i=0; $i < count($all_choices)/3; $i++) :?>
+        <?php 
+          $each_choices = array_slice($all_choices, $i*3, 3);
+          shuffle($each_choices);
+        ?>
       <section class="box-container">
           <h2><?= $i+1 ?>. この地名はなんて読む?</h2>
           <div class="image-container">
-            <img src="./img/<?= $choices[$i*3]["img"] ?>" alt="地名画像">
+            <img src="./img/<?= $all_choices[$i*3]["img"] ?>" alt="地名画像">
           </div>
           <ul>
-            <?php
-              for ($j=0; $j < 3; $j++) :
-            ?>
-            <li value="<?= $choices[$j+$i*3]["valid"] ?>"><?= $choices[$j+$i*3]["name"] ?></li>
-            <?php endfor; ?>
+            <?php foreach ($each_choices as $each_choice) :?>
+            <li value="<?= $each_choice["valid"] ?>"><?= $each_choice["name"] ?></li>
+            <?php endforeach; ?>
           </ul>
       </section>
       <?php endfor; ?>
