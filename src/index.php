@@ -1,3 +1,22 @@
+<?php
+
+require_once(dirname(__FILE__) . '/dbconnect.php');
+
+$sql = 'SELECT sum(learned_hour) FROM learned_history WHERE learned_date = CURRENT_DATE()';
+$stmt = $db->query($sql);
+$today = $stmt->fetch();
+
+$sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
+$stmt = $db->query($sql);
+$month = $stmt->fetch();
+
+$sql = "SELECT sum(learned_hour) FROM learned_history";
+$stmt = $db->query($sql);
+$total = $stmt->fetch();
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -99,17 +118,17 @@
         <div class="hours">
           <div class="todayBox">
             <div class="period">Today</div>
-            <div class="time">3</div>
+            <div class="time"><?= (int)$today['sum(learned_hour)'];?></div>
             <div class="hour">hour</div>
           </div>
           <div class="monthBox">
             <div class="period">Month</div>
-            <div class="time">120</div>
+            <div class="time"><?= $month['sum(learned_hour)'];?></div>
             <div class="hour">hour</div>
           </div>
           <div class="totalBox">
             <div class="period">Total</div>
-            <div class="time">1348</div>
+            <div class="time"><?= $total['sum(learned_hour)'];?></div>
             <div class="hour">hour</div>
           </div>
         </div>
