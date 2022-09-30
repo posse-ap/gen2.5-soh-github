@@ -7,33 +7,33 @@ USE webapp_db;
 -- contents_list
 DROP TABLE IF EXISTS contents_list;
 CREATE TABLE contents_list  (
-  content_id VARCHAR(2) NOT NULL PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   learning_content VARCHAR(20) NOT NULL
 ) CHARSET=utf8;
 
-INSERT INTO contents_list(content_id, learning_content) VALUES
-    ('C0', 'N予備校'),
-    ('C1', 'ドットインストール'),
-    ('C2', 'POSSE課題');
+INSERT INTO contents_list(learning_content) VALUES
+    ('N予備校'),
+    ('ドットインストール'),
+    ('POSSE課題');
 
 
 
 -- languages_list
 DROP TABLE IF EXISTS languages_list;
 CREATE TABLE languages_list  (
-  language_id VARCHAR(2) NOT NULL PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   learning_language VARCHAR(20) NOT NULL
 ) CHARSET=utf8;
 
-INSERT INTO languages_list(language_id, learning_language) VALUES
-    ('L0', 'HTML'),
-    ('L1', 'CSS'),
-    ('L2', 'JavaScript'),
-    ('L3', 'PHP'),
-    ('L4', 'Laravel'),
-    ('L5', 'SQL'),
-    ('L6', 'SHELL'),
-    ('L7', '情報システム基礎知識（その他）');
+INSERT INTO languages_list(learning_language) VALUES
+    ('HTML'),
+    ('CSS'),
+    ('JavaScript'),
+    ('PHP'),
+    ('Laravel'),
+    ('SQL'),
+    ('SHELL'),
+    ('情報システム基礎知識（その他）');
 
 
 
@@ -61,21 +61,21 @@ DROP TABLE IF EXISTS learned_contents;
 CREATE TABLE learned_contents  (
   id INT AUTO_INCREMENT PRIMARY KEY,
   hist_id INT NOT NULL,
-  contents_id VARCHAR(2) NOT NULL,
+  contents_id INT NOT NULL,
   FOREIGN KEY (hist_id) REFERENCES learned_history(id),
-  FOREIGN KEY (contents_id) REFERENCES contents_list(content_id)
+  FOREIGN KEY (contents_id) REFERENCES contents_list(id)
 ) CHARSET=utf8;
 
 INSERT INTO learned_contents(hist_id, contents_id) VALUES
-    (1, 'C0'),
-    (2, 'C0'),
-    (3, 'C0'),
-    (4, 'C1'),
-    (4, 'C2'),
-    (5, 'C0'),
-    (6, 'C0'),
-    (6, 'C1'),
-    (7, 'C2');
+    (1, '1'),
+    (2, '1'),
+    (3, '1'),
+    (4, '2'),
+    (4, '3'),
+    (5, '1'),
+    (6, '1'),
+    (6, '2'),
+    (7, '3');
 
 
 
@@ -84,22 +84,22 @@ DROP TABLE IF EXISTS learned_languages;
 CREATE TABLE learned_languages  (
   id INT AUTO_INCREMENT PRIMARY KEY,
   hist_id INT NOT NULL,
-  languages_id VARCHAR(2) NOT NULL,
+  languages_id INT NOT NULL,
   FOREIGN KEY (hist_id) REFERENCES learned_history(id),
-  FOREIGN KEY (languages_id) REFERENCES languages_list(language_id)
+  FOREIGN KEY (languages_id) REFERENCES languages_list(id)
 ) CHARSET=utf8;
 
 INSERT INTO learned_languages(hist_id, languages_id) VALUES
-    (1, 'L0'),
-    (2, 'L0'),
-    (2, 'L1'),
-    (3, 'L1'),
-    (4, 'L1'),
-    (4, 'L2'),
-    (5, 'L1'),
-    (6, 'L0'),
-    (6, 'L1'),
-    (6, 'L2'),
-    (7, 'L1'),
-    (7, 'L2'),
-    (7, 'L3');
+    (1, '1'),
+    (2, '1'),
+    (2, '2'),
+    (3, '2'),
+    (4, '2'),
+    (4, '3'),
+    (5, '2'),
+    (6, '1'),
+    (6, '2'),
+    (6, '3'),
+    (7, '2'),
+    (7, '3'),
+    (7, '4');
