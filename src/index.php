@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>web-app</title>
   <!-- リセットcss -->
-  <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/3ded641fb3.js" crossorigin="anonymous"></script>
   <!-- flatpickr -->
@@ -14,6 +15,7 @@
   <!-- My css -->
   <link rel="stylesheet" href="./css/index.min.css">
 </head>
+
 <body>
   <header>
     <div class="headerInner">
@@ -69,7 +71,7 @@
                 <textarea name="tweet" class="areaInput" id="tweetText" cols="30" rows="10"></textarea>
               </div>
               <div class="tweetButton">
-                
+
                 <input type="checkbox" name="tweetBox" id="tweetBox" value="1"><label for="tweetBox" style="vertical-align: middle;"><i class="fa-solid fa-circle-check fa-2x checkcircle-color fa-fw"></i>Twitterにシェアする</label>
               </div>
             </div>
@@ -146,9 +148,10 @@
     </div>
     <a href="#modal-01" class="postButton" id="modal-trigger2">記録・投稿</a>
   </main>
-  <script src="jquery-3.5.1.min.js"></script>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="index.js"></script>
+  <script src="./js/jquery-3.5.1.min.js"></script>
+  <script src="./js/index.js"></script>
 </body>
+
 </html>
