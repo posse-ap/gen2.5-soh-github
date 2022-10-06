@@ -177,7 +177,7 @@ $bar_data = json_encode($bar_data);
     </div>
     <div class="footerMonthWrapper">
       <button id="prevBtn" class="footerBtn"><i class="fa-solid fa-angle-left fa-2x period"></i></button>
-      <div class="footerMonth">2020年10月</div>
+      <div class="footerMonth"><?= date('Y');?>年<?= date('n');?>月</div>
       <button id="nextBtn" class="footerBtn"><i class="fa-solid fa-angle-right fa-2x period"></i></button>
     </div>
     <a href="#modal-01" class="postButton" id="modal-trigger2">記録・投稿</a>
