@@ -4,10 +4,14 @@ require_once(dirname(__FILE__) . '/dbconnect.php');
 
 // 学習時間表示（today/month/total）
 $sql = 'SELECT sum(learned_hour) FROM learned_history WHERE learned_date = CURRENT_DATE()';
+//確認用↓
+// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE learned_date = '2022-09-03'";
 $stmt = $db->query($sql);
 $today = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
+//確認用↓
+// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-03', '%Y%m')";
 $stmt = $db->query($sql);
 $month = $stmt->fetch();
 
@@ -18,7 +22,7 @@ $total = $stmt->fetch();
 // 棒グラフ
 $sql = "SELECT DAY(learned_date) day, learned_hour hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
 //確認用↓
-// $sql = "SELECT DAY(learned_date) day, learned_hour hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-01', '%Y%m')";
+// $sql = "SELECT DAY(learned_date) day, learned_hour hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-03', '%Y%m')";
 $stmt = $db->query($sql);
 $bar_data = $stmt->fetchAll();
 // print_r('<pre>');
@@ -129,17 +133,17 @@ $bar_data = json_encode($bar_data);
         <div class="hours">
           <div class="todayBox">
             <div class="period">Today</div>
-            <div class="time"><?= (int)$today['sum(learned_hour)'];?></div>
+            <div class="time"><?= (int)$today['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
           <div class="monthBox">
             <div class="period">Month</div>
-            <div class="time"><?= (int)$month['sum(learned_hour)'];?></div>
+            <div class="time"><?= (int)$month['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
           <div class="totalBox">
             <div class="period">Total</div>
-            <div class="time"><?= (int)$total['sum(learned_hour)'];?></div>
+            <div class="time"><?= (int)$total['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
         </div>
