@@ -3,16 +3,16 @@
 require_once(dirname(__FILE__) . '/dbconnect.php');
 
 // 学習時間表示（today/month/total）
-$sql = 'SELECT sum(learned_hour) FROM learned_history WHERE learned_date = CURRENT_DATE()';
+$sql = 'SELECT sum(learned_hour) FROM learned_history WHERE learned_date = CURRENT_DATE() GROUP BY learned_date';
 //確認用↓
-// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE learned_date = '2022-09-03'";
+// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE learned_date = '2022-09-04' GROUP BY learned_date";
 $stmt = $db->query($sql);
 $today = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
 //確認用↓
-// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-03', '%Y%m')";
-$stmt = $db->query($sql);
+$sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-04', '%Y%m')";
+// $stmt = $db->query($sql);
 $month = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history";
@@ -20,9 +20,9 @@ $stmt = $db->query($sql);
 $total = $stmt->fetch();
 
 // 棒グラフ
-$sql = "SELECT DAY(learned_date) day, learned_hour hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
+$sql = "SELECT DAY(learned_date) day, sum(learned_hour) hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m') GROUP BY learned_date";
 //確認用↓
-// $sql = "SELECT DAY(learned_date) day, learned_hour hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-03', '%Y%m')";
+// $sql = "SELECT DAY(learned_date) day, sum(learned_hour) hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-03', '%Y%m') GROUP BY learned_date";
 $stmt = $db->query($sql);
 $bar_data = $stmt->fetchAll();
 // print_r('<pre>');
