@@ -2,19 +2,34 @@
 
 require_once(dirname(__FILE__) . '/dbconnect.php');
 
-$sql = 'SELECT sum(learned_hour) FROM learned_history WHERE learned_date = CURRENT_DATE()';
+// 学習時間表示（today/month/total）
+$sql = 'SELECT sum(learned_hour) FROM learned_history WHERE learned_date = CURRENT_DATE() GROUP BY learned_date';
+//確認用↓
+// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE learned_date = '2022-09-04' GROUP BY learned_date";
 $stmt = $db->query($sql);
 $today = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
-$stmt = $db->query($sql);
+//確認用↓
+$sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-04', '%Y%m')";
+// $stmt = $db->query($sql);
 $month = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history";
 $stmt = $db->query($sql);
 $total = $stmt->fetch();
 
+// 棒グラフ
+$sql = "SELECT DAY(learned_date) day, sum(learned_hour) hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m') GROUP BY learned_date";
+//確認用↓
+// $sql = "SELECT DAY(learned_date) day, sum(learned_hour) hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-03', '%Y%m') GROUP BY learned_date";
+$stmt = $db->query($sql);
+$bar_data = $stmt->fetchAll();
+// print_r('<pre>');
+// print_r($bar_data);
+// print_r('</pre>');
 
+$bar_data = json_encode($bar_data);
 
 ?>
 <!DOCTYPE html>
@@ -118,17 +133,17 @@ $total = $stmt->fetch();
         <div class="hours">
           <div class="todayBox">
             <div class="period">Today</div>
-            <div class="time"><?= (int)$today['sum(learned_hour)'];?></div>
+            <div class="time"><?= $today['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
           <div class="monthBox">
             <div class="period">Month</div>
-            <div class="time"><?= $month['sum(learned_hour)'];?></div>
+            <div class="time"><?= $month['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
           <div class="totalBox">
             <div class="period">Total</div>
-            <div class="time"><?= $total['sum(learned_hour)'];?></div>
+            <div class="time"><?= $total['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
         </div>
@@ -162,11 +177,14 @@ $total = $stmt->fetch();
     </div>
     <div class="footerMonthWrapper">
       <button id="prevBtn" class="footerBtn"><i class="fa-solid fa-angle-left fa-2x period"></i></button>
-      <div class="footerMonth">2020年10月</div>
+      <div class="footerMonth"><?= date('Y');?>年<?= date('n');?>月</div>
       <button id="nextBtn" class="footerBtn"><i class="fa-solid fa-angle-right fa-2x period"></i></button>
     </div>
     <a href="#modal-01" class="postButton" id="modal-trigger2">記録・投稿</a>
   </main>
+  <script>
+    let bar_data = <?= $bar_data?>;  //index.jsへのデータ受け渡し
+  </script>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="./js/jquery-3.5.1.min.js"></script>
