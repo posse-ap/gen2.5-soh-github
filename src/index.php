@@ -133,17 +133,17 @@ $bar_data = json_encode($bar_data);
         <div class="hours">
           <div class="todayBox">
             <div class="period">Today</div>
-            <div class="time"><?= (int)$today['sum(learned_hour)'] ?? 0;?></div>
+            <div class="time"><?= $today['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
           <div class="monthBox">
             <div class="period">Month</div>
-            <div class="time"><?= (int)$month['sum(learned_hour)'] ?? 0;?></div>
+            <div class="time"><?= $month['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
           <div class="totalBox">
             <div class="period">Total</div>
-            <div class="time"><?= (int)$total['sum(learned_hour)'] ?? 0;?></div>
+            <div class="time"><?= $total['sum(learned_hour)'] ?? 0;?></div>
             <div class="hour">hour</div>
           </div>
         </div>
