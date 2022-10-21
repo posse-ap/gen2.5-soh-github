@@ -11,7 +11,7 @@ $today = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
 //確認用↓
-$sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-04', '%Y%m')";
+// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-04', '%Y%m')";
 // $stmt = $db->query($sql);
 $month = $stmt->fetch();
 
@@ -31,6 +31,23 @@ $bar_data = $stmt->fetchAll();
 
 $bar_data = json_encode($bar_data);
 
+// 円グラフ
+//学習コンテンツ
+$sql = "SELECT a.learning_content content, sum(learned_history.learned_hour) hour FROM learned_history INNER JOIN (SELECT hist_id, contents_id, learning_content FROM learned_contents INNER JOIN contents_list ON learned_contents.contents_id = contents_list.id) a ON learned_history.id = a.hist_id GROUP BY contents_id";
+$stmt = $db->query($sql);
+$contents_data = $stmt->fetchAll();
+$contents_data = json_encode($contents_data);
+
+//学習言語
+$sql = "SELECT a.learning_language language, sum(learned_history.learned_hour) hour FROM learned_history INNER JOIN (SELECT hist_id, languages_id, learning_language FROM learned_languages INNER JOIN languages_list ON learned_languages.languages_id = languages_list.id) a ON learned_history.id = a.hist_id GROUP BY languages_id";
+$stmt = $db->query($sql);
+$languages_data = $stmt->fetchAll();
+
+print_r('<pre>');
+print_r($languages_data);
+print_r('</pre>');
+
+$languages_data = json_encode($languages_data);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -183,7 +200,10 @@ $bar_data = json_encode($bar_data);
     <a href="#modal-01" class="postButton" id="modal-trigger2">記録・投稿</a>
   </main>
   <script>
-    let bar_data = <?= $bar_data?>;  //index.jsへのデータ受け渡し
+    //index.jsへのデータ受け渡し
+    let bar_data = <?= $bar_data?>;
+    let contents_data = <?= $contents_data?>;
+    let languages_data = <?= $languages_data?>;
   </script>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
