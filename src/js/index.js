@@ -116,7 +116,7 @@ $(function () {
   }
 
   //学習言語
-  let languagesArray = [["コンテンツ", "割合"]]; 
+  let languagesArray = [["言語", "割合"]]; 
   for(let i=0; i < languages_data.length; i++) {
     languagesArray.push([languages_data[i].language, Number(languages_data[i].hour)]);
   }
