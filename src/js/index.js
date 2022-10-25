@@ -89,17 +89,15 @@ $(function () {
   google.charts.setOnLoadCallback(learningTimeChart); //棒グラフ
 
   // Callback that draws the chart.
-  //学習言語
+  //学習コンテンツ
+  let contentsArray = [["コンテンツ", "割合"]]; 
+  for(let i=0; i < contents_data.length; i++) {
+    contentsArray.push([contents_data[i].content, Number(contents_data[i].hour)]);
+  }
+
   function learningContentsChart() {
     // Create the data table
-    let data = new google.visualization.DataTable();
-    data.addColumn("string", "コンテンツ");
-    data.addColumn("number", "割合");
-    data.addRows([
-      ["N予備校", 40],
-      ["ドットインストール", 20],
-      ["課題", 40],
-    ]);
+    let data = google.visualization.arrayToDataTable(contentsArray)
 
     // Set options for chart.
     let options = {
@@ -117,22 +115,15 @@ $(function () {
     chart.draw(data, options);
   }
 
-  //学習コンテンツ
+  //学習言語
+  let languagesArray = [["言語", "割合"]]; 
+  for(let i=0; i < languages_data.length; i++) {
+    languagesArray.push([languages_data[i].language, Number(languages_data[i].hour)]);
+  }
+
   function learningLangageChart() {
     // Create the data table
-    let data = new google.visualization.DataTable();
-    data.addColumn("string", "言語");
-    data.addColumn("number", "割合");
-    data.addRows([
-      ["HTML", 30],
-      ["CSS", 20],
-      ["JavaScript", 10],
-      ["PHP", 5],
-      ["Laravel", 5],
-      ["SQL", 20],
-      ["SHELL", 20],
-      ["その他", 10],
-    ]);
+    let data = google.visualization.arrayToDataTable(languagesArray)
 
     // Set options for chart.
     let options = {

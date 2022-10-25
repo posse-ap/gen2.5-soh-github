@@ -11,8 +11,8 @@ $today = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT(NOW(), '%Y%m')";
 //確認用↓
-$sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-04', '%Y%m')";
-// $stmt = $db->query($sql);
+// $sql = "SELECT sum(learned_hour) FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-04', '%Y%m')";
+$stmt = $db->query($sql);
 $month = $stmt->fetch();
 
 $sql = "SELECT sum(learned_hour) FROM learned_history";
@@ -31,6 +31,18 @@ $bar_data = $stmt->fetchAll();
 
 $bar_data = json_encode($bar_data);
 
+// 円グラフ
+//学習コンテンツ
+$sql = "SELECT a.learning_content content, sum(learned_history.learned_hour) hour, a.color color FROM learned_history INNER JOIN (SELECT hist_id, contents_id, learning_content, color FROM learned_contents INNER JOIN contents_list ON learned_contents.contents_id = contents_list.id) a ON learned_history.id = a.hist_id GROUP BY contents_id ORDER BY contents_id";
+$stmt = $db->query($sql);
+$contents_data = $stmt->fetchAll();
+$contents_data_json = json_encode($contents_data);
+
+//学習言語
+$sql = "SELECT a.learning_language language, sum(learned_history.learned_hour) hour, a.color color FROM learned_history INNER JOIN (SELECT hist_id, languages_id, learning_language, color FROM learned_languages INNER JOIN languages_list ON learned_languages.languages_id = languages_list.id) a ON learned_history.id = a.hist_id GROUP BY languages_id ORDER BY languages_id";
+$stmt = $db->query($sql);
+$languages_data = $stmt->fetchAll();
+$languages_data_json = json_encode($languages_data);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -154,23 +166,18 @@ $bar_data = json_encode($bar_data);
           <div class="contentTitle">学習言語</div>
           <div class="chart" id="lang-chart"></div>
           <ul class="legends">
-            <li class="legend1">JavaScript</li>
-            <li class="legend2">CSS</li>
-            <li class="legend3">PHP</li>
-            <li class="legend4">HTML</li>
-            <li class="legend5">Laravel</li>
-            <li class="legend6">SQL</li>
-            <li class="legend7">SHELL</li>
-            <li class="legend8">情報システム基礎知識（その他）</li>
+            <?php foreach ($languages_data as $key => $val) : ?>
+              <li class=<?= "legend". $key;?>><?= $val['language'];?></li>
+            <?php endforeach; ?>
           </ul>
         </div>
         <div class="contents">
           <div class="contentTitle">学習コンテンツ</div>
           <div class="chart" id="contents-chart"></div>
           <ul class="legends">
-            <li class="legend1">ドットインストール</li>
-            <li class="legend2">N予備校</li>
-            <li class="legend3">POSSE課題</li>
+          <?php foreach ($contents_data as $key => $val) : ?>
+              <li class=<?= "legend". $key;?>><?= $val['content'];?></li>
+            <?php endforeach; ?>
           </ul>
         </div>
       </div>
@@ -183,7 +190,10 @@ $bar_data = json_encode($bar_data);
     <a href="#modal-01" class="postButton" id="modal-trigger2">記録・投稿</a>
   </main>
   <script>
-    let bar_data = <?= $bar_data?>;  //index.jsへのデータ受け渡し
+    //index.jsへのデータ受け渡し
+    let bar_data = <?= $bar_data?>;
+    let contents_data = <?= $contents_data_json?>;
+    let languages_data = <?= $languages_data_json?>;
   </script>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
