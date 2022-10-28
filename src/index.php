@@ -25,9 +25,6 @@ $sql = "SELECT DAY(learned_date) day, sum(learned_hour) hour FROM learned_histor
 // $sql = "SELECT DAY(learned_date) day, sum(learned_hour) hour FROM learned_history WHERE DATE_FORMAT(learned_date, '%Y%m') = DATE_FORMAT('2022-09-03', '%Y%m') GROUP BY learned_date";
 $stmt = $db->query($sql);
 $bar_data = $stmt->fetchAll();
-// print_r('<pre>');
-// print_r($bar_data);
-// print_r('</pre>');
 
 $bar_data = json_encode($bar_data);
 
