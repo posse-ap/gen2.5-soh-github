@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     // return '<html><body><h1>Hello</h1><p>This is sample page.</p></body></html>';
 // });
 
-Route::get('hello', 'App\Http\Controllers\HelloController@index');
+// Route::get('hello', 'App\Http\Controllers\HelloController@index');
 //HelloController@indexだけじゃエラー起こる
 
 // Route::get('hello', function () {
@@ -28,4 +28,6 @@ Route::get('hello', 'App\Http\Controllers\HelloController@index');
   // });
 
 
-Route::post('hello', 'App\Http\Controllers\HelloController@post');
+// Route::post('hello', 'App\Http\Controllers\HelloController@post');
+
+Route::get('/quizy/{id?}', 'App\Http\Controllers\QuizyController@index');
