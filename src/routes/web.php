@@ -15,17 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-//     // return '<html><body><h1>Hello</h1><p>This is sample page.</p></body></html>';
-// });
 
 // Route::get('hello', 'App\Http\Controllers\HelloController@index');
 //HelloController@indexだけじゃエラー起こる
-
-// Route::get('hello', function () {
-  //     return view('hello.index');
-  // });
 
 
 // Route::post('hello', 'App\Http\Controllers\HelloController@post');

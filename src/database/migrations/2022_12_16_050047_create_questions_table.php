@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bigquestions', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('pref_name');
+            $table->unsignedBigInteger('bigquestion_id');
+            $table->string('img');
+            $table->foreign('bigquestion_id')->references('id')->on('bigquestions');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bigquestions');
+        Schema::dropIfExists('questions');
     }
 };

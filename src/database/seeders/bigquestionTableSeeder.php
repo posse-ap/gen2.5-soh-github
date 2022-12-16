@@ -18,6 +18,7 @@ class bigquestionTableSeeder extends Seeder
         $param = [
             'pref_name' => '東京',
         ];
+        DB::table('bigquestions')->insert($param);
         $param = [
             'pref_name' => '広島',
         ];
