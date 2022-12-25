@@ -17,7 +17,7 @@ return new class extends Migration
             $table->BigIncrements('id');
             $table->unsignedBigInteger('bigquestion_id');
             $table->string('img');
-            $table->foreign('bigquestion_id')->references('id')->on('bigquestions');
+            $table->foreign('bigquestion_id')->references('id')->on('big_questions');
             $table->timestamps();
         });
     }

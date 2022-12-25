@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class bigquestionTableSeeder extends Seeder
+class BigQuestionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,10 +18,10 @@ class bigquestionTableSeeder extends Seeder
         $param = [
             'pref_name' => '東京',
         ];
-        DB::table('bigquestions')->insert($param);
+        DB::table('big_questions')->insert($param);
         $param = [
             'pref_name' => '広島',
         ];
-        DB::table('bigquestions')->insert($param);
+        DB::table('big_questions')->insert($param);
     }
 }
