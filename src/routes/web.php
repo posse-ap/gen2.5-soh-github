@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::get('hello', 'App\Http\Controllers\HelloController@index');
+// Route::get('/quizlist', 'App\Http\Controllers\HelloController@index');
 //HelloController@indexだけじゃエラー起こる
 
+Route::get('/quizlist', function(){
+  return view('hello.index');
+});
 
 // Route::post('hello', 'App\Http\Controllers\HelloController@post');
 

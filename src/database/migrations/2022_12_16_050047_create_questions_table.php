@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->unsignedBigInteger('bigquestion_id');
+            $table->unsignedBigInteger('big_question_id');
             $table->string('img');
-            $table->foreign('bigquestion_id')->references('id')->on('big_questions');
+            $table->foreign('big_question_id')->references('id')->on('big_questions');
             $table->timestamps();
         });
     }

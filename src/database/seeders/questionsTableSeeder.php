@@ -16,17 +16,17 @@ class QuestionsTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'bigquestion_id' => 1,
+            'big_question_id' => 1,
             'img' => 'takanawa.png',
         ];
         DB::table('questions')->insert($param);
         $param = [
-            'bigquestion_id' => 1,
+            'big_question_id' => 1,
             'img' => 'kameido.png',
         ];
         DB::table('questions')->insert($param);
         $param = [
-            'bigquestion_id' => 2,
+            'big_question_id' => 2,
             'img' => 'mukainada.png',
         ];
         DB::table('questions')->insert($param);
