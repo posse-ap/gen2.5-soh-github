@@ -14,6 +14,9 @@ ENV TZ=UTC \
 COPY --from=composer:2.3 /usr/bin/composer /usr/bin/composer
 
 RUN apt-get update && \
+  apt-get install -y nodejs npm && \
+  npm install n -g && \
+  n latest && \
   apt-get -y install git libicu-dev libonig-dev libzip-dev unzip locales && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
