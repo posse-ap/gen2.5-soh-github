@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models;
+use App\Models\BigQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class QuizyController extends Controller
 {
   public function index($id) {
-    $items = Models\BigQuestion::where('id', $id)->with('questions.choices')->get();
+    $items = BigQuestion::where('id', $id)->with('questions.choices')->get();
     // dd($items);
 
     $param = ['prefecture' => $items];
