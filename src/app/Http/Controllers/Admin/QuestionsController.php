@@ -15,13 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $items = BigQuestion::get(['id','pref_name']);
-        return view('admin.bigquestions', compact('items'));
-    }
-    public function questions($id)  //show
-    {
-        $items = BigQuestion::with('questions')->find($id);
-        return view('admin.questions', compact('items'));
+        //
     }
 
     /**
@@ -31,7 +25,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin/big_questions/create');
+        //
     }
 
     /**
@@ -42,11 +36,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $pref_name = new BigQuestion;
-        $pref_name->pref_name=$request->input('pref_name');
-        $pref_name->save();
-
-        return redirect('admin');
+        
     }
 
     /**
@@ -68,9 +58,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $pref_name = BigQuestion::find($id);
-
-        return view('admin/big_questions/edit', compact('pref_name'));
+        
     }
 
     /**
@@ -82,11 +70,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pref_name = BigQuestion::find($id);
-        $pref_name->pref_name=$request->input('pref_name');
-        $pref_name->save();
-
-        return redirect('admin');
+        
     }
 
     /**
@@ -97,9 +81,6 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $pref_name = BigQuestion::find($id);
-        $pref_name->delete();
-
-        return redirect('admin');
+        
     }
 }

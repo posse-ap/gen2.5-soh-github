@@ -18,16 +18,19 @@ class QuestionsTableSeeder extends Seeder
         $param = [
             'big_question_id' => 1,
             'img' => 'takanawa.png',
+            'name' => '高輪',
         ];
         DB::table('questions')->insert($param);
         $param = [
             'big_question_id' => 1,
             'img' => 'kameido.png',
+            'name' => '亀戸',
         ];
         DB::table('questions')->insert($param);
         $param = [
             'big_question_id' => 2,
             'img' => 'mukainada.png',
+            'name' => '向洋',
         ];
         DB::table('questions')->insert($param);
     }

@@ -7,15 +7,13 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <div class="p-6 text-gray-900">
-              {{ __("You're logged in!") }}
+          <div class="p-6 text-white text-xl bg-gray-500">
+              {{$items->pref_name}}
           </div>
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            @foreach ($items as $item)
+            @foreach ($items->questions as $question)
             <div class="p-6 text-gray-900 flex justify-between">
-              <a href="/admin/questions/{{$item->id}}">
-                {{ __($item->pref_name) }}
-              </a>
+              <div>{{ __($question->name) }}</div>
               <div class="flex gap-4">
                 <div>編集</div>
                 <div>削除</div>
@@ -23,7 +21,7 @@
             </div>
             @endforeach
           </div>
-          <div class="p-6">登録</div>
+          <div class="p-6">新規追加</div>
         </div>
     </div>
 </x-app-layout>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizyController;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,17 @@ Route::get('/', function () {
     return view('quizy.quizytop');
 });
 
-Route::get('/admin', function () {
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('admin');
+
+
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/admin', 'index')->middleware(['auth', 'verified'])->name('admin');
+    Route::get('/admin/questions/{id}', 'questions')->name('big_question.show');
+    Route::get('/admin/big_questions/create', 'create')->name('big_question.create');
+    Route::post('/admin/big_questions/store', 'store')->name('big_question.store');
+    Route::get('/admin/big_questions/edit/{id}', 'edit')->name('big_question.edit');
+    Route::post('/admin/big_questions/update/{id}', 'update')->name('big_question.update');
+    Route::post('/admin/big_questions/destroy/{id}', 'destroy')->name('big_question.destroy');
+});
 
 Route::get('/quizy/{id}', [QuizyController::class,'index']);
 
