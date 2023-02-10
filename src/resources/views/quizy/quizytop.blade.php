@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quizy -TOP-</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+<x-guest-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('編集') }}
+        </h2>
+    </x-slot>
 <body>
-  <div class="wrapper">
-    <li><a href="/quizy/1">東京</a></li>
-    <li><a href="/quizy/2">広島</a></li>
+  <div class="wrapper text-center">
+    @foreach ($items as $item)
+    <div class="text-xl py-6">
+      <a href="{{ route('quizy',['id' => $item->id]) }}">{{__($item->pref_name)}}の難読地名クイズ</a>
+    </div>
+    @endforeach
     @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -27,4 +26,4 @@
             @endif
   </div>
 </body>
-</html>
+</x-guest-layout>

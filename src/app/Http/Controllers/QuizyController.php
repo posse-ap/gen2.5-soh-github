@@ -14,4 +14,9 @@ class QuizyController extends Controller
     $param = ['prefecture' => $items];
     return view('quizy.index', $param);
   }
+
+  public function quizlist() {
+    $items = BigQuestion::all();
+    return view('quizy.quizytop', compact('items'));
+  }
 }

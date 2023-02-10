@@ -17,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('quizy.quizytop');
-});
+//top page (quiz list)
+Route::get('/', [QuizyController::class,'quizlist'])->name('quizlist');
 
 //admin
 //big_questions
@@ -41,7 +40,8 @@ Route::controller(QuestionsController::class)->middleware(['auth', 'verified'])-
     Route::get('/admin/big_questions/{id}/questions/{question_id}', 'edit')->name('question.edit');
 });
 
-Route::get('/quizy/{id}', [QuizyController::class,'index']);
+//quizy
+Route::get('/quizy/{id}', [QuizyController::class,'index'])->name('quizy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
