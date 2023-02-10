@@ -30,7 +30,9 @@
             </div>
             @endforeach
           </div>
-          <div class="p-6"><a href="{{ route('big_question.create') }}">新規追加</a></div>
+          <div class="py-6 flex justify-end">
+            <x-primary-button class="p-6"><a href="{{ route('big_question.create') }}">新規追加</a></x-primary-button>
+          </div>
         </div>
     </div>
 </x-app-layout>

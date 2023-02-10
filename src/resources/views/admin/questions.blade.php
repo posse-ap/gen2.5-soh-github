@@ -15,13 +15,16 @@
             <div class="p-6 text-gray-900 flex justify-between">
               <div>{{ __($question->name) }}</div>
               <div class="flex gap-4">
-                <div>編集</div>
-                <div>削除</div>
+                <div><a href="{{ route('question.edit',['id'=>$items->id, 'question_id'=>$question->id]) }}">編集</a></div>
+                <div><a href="{{ route('question.destroy',['id'=>$items->id, 'question_id'=>$question->id]) }}">削除</a></div>
               </div>
             </div>
             @endforeach
           </div>
-          <div class="p-6">新規追加</div>
+          <div class="py-6 flex justify-between">
+            <div class="px-6"><a href="{{ route('admin') }}">戻る</a></div>
+            <x-primary-button ><a href="{{ route('question.create',['id'=>$items->id]) }}">{{ __('新規追加') }}</a></x-primary-button>
+          </div>
         </div>
     </div>
 </x-app-layout>

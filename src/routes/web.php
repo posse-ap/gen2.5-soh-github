@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizyController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\QuestionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,16 +21,24 @@ Route::get('/', function () {
     return view('quizy.quizytop');
 });
 
-
-
-Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin', 'index')->middleware(['auth', 'verified'])->name('admin');
-    Route::get('/admin/questions/{id}', 'questions')->name('big_question.show');
+//admin
+//big_questions
+Route::controller(AdminController::class)->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/admin', 'index')->name('admin');
     Route::get('/admin/big_questions/create', 'create')->name('big_question.create');
     Route::post('/admin/big_questions/store', 'store')->name('big_question.store');
     Route::get('/admin/big_questions/edit/{id}', 'edit')->name('big_question.edit');
     Route::post('/admin/big_questions/update/{id}', 'update')->name('big_question.update');
     Route::post('/admin/big_questions/destroy/{id}', 'destroy')->name('big_question.destroy');
+    Route::get('/admin/big_questions/{id}', 'questions')->name('big_question.show');
+});
+//questions
+Route::controller(QuestionsController::class)->middleware(['auth', 'verified'])->group(function () {
+    Route::post('/admin/big_questions/{id}/questions/{question_id}/update', 'update')->name('question.update');
+    Route::get('/admin/big_questions/{id}/create', 'create')->name('question.create');
+    Route::post('/admin/big_questions/{id}/store', 'store')->name('question.store');
+    Route::get('/admin/big_questions/{id}/questions/{question_id}/destroy', 'destroy')->name('question.destroy');
+    Route::get('/admin/big_questions/{id}/questions/{question_id}', 'edit')->name('question.edit');
 });
 
 Route::get('/quizy/{id}', [QuizyController::class,'index']);

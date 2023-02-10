@@ -18,6 +18,7 @@ class AdminController extends Controller
         $items = BigQuestion::get(['id','pref_name']);
         return view('admin.bigquestions', compact('items'));
     }
+    
     public function questions($id)  //show
     {
         $items = BigQuestion::with('questions')->find($id);

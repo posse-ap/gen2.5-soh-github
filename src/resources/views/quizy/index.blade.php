@@ -16,7 +16,7 @@
       <section class="box-container">
           <h2>{{$loop->index + 1}}. この地名はなんて読む?</h2>
           <div class="image-container">
-            <img src="/img/{{$question->img}}" alt="地名画像">
+            <img src="/img/{{$question->img}}" alt="{{$question->name}}">
           </div>
           <ul>
             @foreach ($question->choices as $choice)
